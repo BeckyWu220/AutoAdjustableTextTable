@@ -70,7 +70,8 @@
     
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, tableViewHeight);
     self.contentSize = CGSizeMake(self.frame.size.width, tableViewHeight);
-
+    
+    [self.scrollDelegate updateRelatedElementsInScrollView];
 }
 
 - (void)calculateDeltaHeight
@@ -251,7 +252,7 @@
 
 - (void)endEditingTextTableCellText:(TextTableCell *)cell
 {
-    [self.scrollDelegate updateRelatedElementsInScrollViewWithCell:cell];
+    [self.scrollDelegate updateRelatedElementsInScrollView];
 }
 
 - (NSString *)formatDate:(NSDate *)date

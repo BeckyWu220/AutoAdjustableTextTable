@@ -17,7 +17,7 @@
 - (void)changeScrollViewContentSizeBy:(CGFloat)tableViewChangedHeight NewTableHeight:(CGFloat)newTableViewHeight;
 - (void)setScrollViewContentYOffset:(CGFloat)yOffset WithKeyboardHeight:(CGFloat)keyboardHeight;
 - (void)resetScrollViewContentOffset;
-- (void)updateRelatedElementsInScrollViewWithCell:(TextTableCell *)cell;
+- (void)updateRelatedElementsInScrollView;
 
 @end
 
