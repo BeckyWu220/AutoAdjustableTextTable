@@ -39,7 +39,7 @@
         
         for (int i=0; i<dataArray.count; i++) {
             NSArray *cellArray = [dataArray objectAtIndex:i];
-            TextCellData *cellData = [[TextCellData alloc] initWithCellArray:cellArray];
+            TextCellData *cellData = [[TextCellData alloc] initWithTitle:@"Test" Content:@"Test" Type:HORIZONTAL_DATEPICKER_TYPE Options:nil];
             NSLog(@"Cell Options: %@", cellData.cellOptions);
             [tableData addObject: cellData];
         }

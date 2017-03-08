@@ -31,7 +31,7 @@ typedef NS_ENUM(NSInteger, TextCellType) {
 @property (strong, nonatomic) NSString *cellIdentifier;
 @property (strong, nonatomic) NSArray *cellOptions;
 
-- (id)initWithCellArray:(NSArray *)cellArray;
+- (id)initWithTitle:(NSString *)title Content:(NSString *)content Type:(int)type Options:(NSArray *)options;
 
 
 @end

@@ -17,25 +17,20 @@
 @synthesize cellIdentifier;
 @synthesize cellOptions;
 
-- (id)initWithCellArray:(NSArray *)cellArray
+- (id)initWithTitle:(NSString *)title Content:(NSString *)content Type:(int)type Options:(NSArray *)options
 {
     self = [super init];
     if (self) {
-        self.cellTitle = [cellArray objectAtIndex:0];
-        self.cellContent = [cellArray objectAtIndex:1];
-        self.cellType = [[cellArray objectAtIndex:2] integerValue];
+        self.cellTitle = title;
+        self.cellContent = content;
+        self.cellType = type;
         
         if (self.cellType == HORIZONTAL_UIPICKER_TYPE || self.cellType == VERTICAL_UIPICKER_TYPE) {
-            if (cellArray.count > 3) {
-                self.cellOptions = [NSArray arrayWithArray:[cellArray objectAtIndex:3]];
-            }else{
-                NSLog(@"CELL OPTIONS ARE MISSING IN CELL WHOSE TITLE IS %@", cellTitle);
-            }
-        }else{
+            self.cellOptions = options;
+        }else {
             self.cellOptions = nil;
         }
         
-        //TextCellType textCellType = ;
         switch (self.cellType) {
             case VERTICAL_TEXT_TYPE:
                 self.cellHeaderHeight = 34.0f;
@@ -72,7 +67,5 @@
     }
     return self;
 }
-
-
 
 @end
