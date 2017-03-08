@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BWAdjustableTextTable.h"
+#import "BWCell.h"
 
 @interface ViewController : UIViewController <BWAdjustableTextTableDelegate>
 

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TextTableCell.h"
 #import "TextCellData.h"
+#import "BWCell.h"
 
 @protocol BWAdjustableTextTableDelegate <NSObject>
 

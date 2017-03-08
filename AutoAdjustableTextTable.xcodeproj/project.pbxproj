@@ -19,6 +19,7 @@
 		4540CF781E708401003DCC93 /* TextTableCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4540CF731E708401003DCC93 /* TextTableCell2.xib */; };
 		4540CFD51E7087F6003DCC93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4540CFD41E7087F6003DCC93 /* Main.storyboard */; };
 		4560ECE21E708C7B00CC4058 /* pickerSign.png in Resources */ = {isa = PBXBuildFile; fileRef = 4560ECE11E708C7B00CC4058 /* pickerSign.png */; };
+		4560ECE51E70BEC100CC4058 /* BWCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4560ECE41E70BEC100CC4058 /* BWCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		4540CF731E708401003DCC93 /* TextTableCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextTableCell2.xib; sourceTree = "<group>"; };
 		4540CFD41E7087F6003DCC93 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4560ECE11E708C7B00CC4058 /* pickerSign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickerSign.png; sourceTree = "<group>"; };
+		4560ECE31E70BEC100CC4058 /* BWCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCell.h; sourceTree = "<group>"; };
+		4560ECE41E70BEC100CC4058 /* BWCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				4540CF711E708401003DCC93 /* TextTableCell.m */,
 				4540CF721E708401003DCC93 /* TextTableCell1.xib */,
 				4540CF731E708401003DCC93 /* TextTableCell2.xib */,
+				4560ECE31E70BEC100CC4058 /* BWCell.h */,
+				4560ECE41E70BEC100CC4058 /* BWCell.m */,
 			);
 			name = BWTextTable;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 				4540CF751E708401003DCC93 /* TextCellData.m in Sources */,
 				4540CF741E708401003DCC93 /* BWAdjustableTextTable.m in Sources */,
 				4540CF5D1E7083DC003DCC93 /* ViewController.m in Sources */,
+				4560ECE51E70BEC100CC4058 /* BWCell.m in Sources */,
 				4540CF5A1E7083DC003DCC93 /* AppDelegate.m in Sources */,
 				4540CF571E7083DC003DCC93 /* main.m in Sources */,
 				4540CF761E708401003DCC93 /* TextTableCell.m in Sources */,

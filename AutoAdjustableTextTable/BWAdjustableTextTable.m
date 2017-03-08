@@ -38,9 +38,9 @@
         tableData = [[NSMutableArray alloc] init];
         
         for (int i=0; i<dataArray.count; i++) {
-            NSArray *cellArray = [dataArray objectAtIndex:i];
-            TextCellData *cellData = [[TextCellData alloc] initWithTitle:@"Test" Content:@"Test" Type:HORIZONTAL_DATEPICKER_TYPE Options:nil];
-            NSLog(@"Cell Options: %@", cellData.cellOptions);
+            BWCell *cell = [dataArray objectAtIndex:i];
+            
+            TextCellData *cellData = [[TextCellData alloc] initWithTitle:cell.title Content:cell.defaultContent Type:cell.type Options:cell.options];
             [tableData addObject: cellData];
         }
         

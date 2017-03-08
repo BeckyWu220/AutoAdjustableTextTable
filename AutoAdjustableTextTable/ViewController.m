@@ -29,11 +29,7 @@
     
     [self.view addSubview:scrollView];
     
-    textTableView = [[BWAdjustableTextTable alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2) Data:[NSArray arrayWithObjects:@[@"Name", @"Not Specified", [NSNumber numberWithInteger:HORIZONTAL_TEXT_TYPE]], @[@"Email", @"Not Specified", [NSNumber numberWithInteger:HORIZONTAL_TEXT_TYPE]],
-        @[@"Phone", @"Not Specified", [NSNumber numberWithInteger:HORIZONTAL_TEXT_TYPE]],
-        @[@"Address", @"Not Specified", [NSNumber numberWithInteger:HORIZONTAL_TEXT_TYPE]],
-        @[@"Birthday", @"Not Specified", [NSNumber numberWithInteger:HORIZONTAL_DATEPICKER_TYPE]],
-        @[@"Job", @"Not Specified", [NSNumber numberWithInteger:HORIZONTAL_UIPICKER_TYPE], @[@"Programmer", @"Artist", @"Designer"]], nil]];
+    textTableView = [[BWAdjustableTextTable alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2) Data:[NSArray arrayWithObjects:[[BWCell alloc] initWithTitle:@"Name" DefaultContent:@"Not Specified" Type:HORIZONTAL_TEXT_TYPE Options:nil], [[BWCell alloc] initWithTitle:@"Email" DefaultContent:@"Not Specified" Type:HORIZONTAL_TEXT_TYPE Options:nil], [[BWCell alloc] initWithTitle:@"Job" DefaultContent:@"Not Specified" Type:HORIZONTAL_UIPICKER_TYPE Options:@[@"Programmer", @"Artist", @"Designer"]], [[BWCell alloc] initWithTitle:@"Employed From" DefaultContent:@"Not Specified" Type:VERTICAL_DATEPICKER_TYPE Options:nil], nil]];
     
     textTableView.scrollDelegate = self;
     [scrollView addSubview:textTableView];
