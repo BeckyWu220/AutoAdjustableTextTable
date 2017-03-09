@@ -39,31 +39,36 @@
             case HORIZONTAL_TEXT_TYPE:
                 self.cellHeaderHeight = 0.0f;//In Horizontal Mode, the headerHeight doesn't effect the height of cell. Set it to zero in order to unify calculation formula.
                 self.cellIdentifier = @"TextTableCell1";
+                self.cellHeight = 43.5f;
                 break;
             case VERTICAL_DATEPICKER_TYPE:
                 self.cellHeaderHeight = 34.0f;
                 self.cellIdentifier = @"TextTableCell2";
+                self.cellHeight = 77.5f;
                 break;
             case HORIZONTAL_DATEPICKER_TYPE:
                 self.cellHeaderHeight = 0.0f;
                 self.cellIdentifier = @"TextTableCell1";
+                self.cellHeight = 43.5f;
                 break;
             case VERTICAL_UIPICKER_TYPE:
                 self.cellHeaderHeight = 34.0f;
                 self.cellIdentifier = @"TextTableCell2";
+                self.cellHeight = 77.5f;
                 break;
             case HORIZONTAL_UIPICKER_TYPE:
                 self.cellHeaderHeight = 0.0f;
                 self.cellIdentifier = @"TextTableCell1";
+                self.cellHeight = 43.5f;
                 break;
             default:
                 //Defaultly, cellType is VERTICAL_TEXT_TYPE.
                 self.cellHeaderHeight = 34.0f;
                 self.cellIdentifier = @"TextTableCell2";
+                self.cellHeight = 77.5f;
                 break;
         }
-        
-        self.cellHeight = 0.0f;
+    
     }
     return self;
 }
