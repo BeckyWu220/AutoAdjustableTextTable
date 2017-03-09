@@ -17,7 +17,7 @@
 - (void)changeScrollViewContentSizeBy:(CGFloat)tableViewChangedHeight NewTableHeight:(CGFloat)newTableViewHeight;
 - (void)setScrollViewContentYOffset:(CGFloat)yOffset WithKeyboardHeight:(CGFloat)keyboardHeight;
 - (void)resetScrollViewContentOffset;
-- (void)updateRelatedElementsInScrollViewWithCell:(TextTableCell *)cell;
+- (void)updateRelatedElementsInScrollView;
 
 @end
 
@@ -26,7 +26,7 @@
 @property (weak, nonatomic) id<BWAdjustableTextTableDelegate> scrollDelegate;
 @property (strong, nonatomic) NSIndexPath *currentIndexPath;
 
-- (id)initWithFrame:(CGRect)frame Data:(NSArray *)dataArray;
+- (id)initWithWidth:(CGFloat)width PositionY:(CGFloat)positionY Data:(NSArray *)dataArray;
 - (NSArray *)stopEditingAndReturnCellData;
 
 @end

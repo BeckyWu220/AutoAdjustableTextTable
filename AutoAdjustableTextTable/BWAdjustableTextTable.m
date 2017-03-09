@@ -21,10 +21,11 @@
 @synthesize scrollDelegate;
 @synthesize currentIndexPath;
 
-- (id)initWithFrame:(CGRect)frame Data:(NSArray *)dataArray
+- (id)initWithWidth:(CGFloat)width PositionY:(CGFloat)positionY Data:(NSArray *)dataArray
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
     if (self) {
+        self.frame = CGRectMake(0, positionY, width, 0);
         self.backgroundColor = [UIColor orangeColor];
         
         self.delegate = self;
@@ -32,8 +33,6 @@
         
         self.allowsSelection = NO;
         self.scrollEnabled = NO;
-        
-        self.contentSize = self.frame.size;
         
         tableData = [[NSMutableArray alloc] init];
         
@@ -43,6 +42,8 @@
             TextCellData *cellData = [[TextCellData alloc] initWithTitle:cell.title Content:cell.defaultContent Type:cell.type Options:cell.options];
             [tableData addObject: cellData];
         }
+        
+        [self updateTableViewSize];
         
         keyboardHeight = 0;
         
@@ -70,7 +71,8 @@
     
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, tableViewHeight);
     self.contentSize = CGSizeMake(self.frame.size.width, tableViewHeight);
-
+    
+    [self.scrollDelegate updateRelatedElementsInScrollView];
 }
 
 - (void)calculateDeltaHeight
@@ -154,11 +156,14 @@
         
     if (cell.type == VERTICAL_DATEPICKER_TYPE || cell.type == HORIZONTAL_DATEPICKER_TYPE || cell.type == VERTICAL_UIPICKER_TYPE || cell.type == HORIZONTAL_UIPICKER_TYPE) {
             cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pickerSign"]];
+    }else {
+        cell.accessoryView = nil;
     }
     
     [cell setContentTextViewSizeToFit];
     
     cellData.cellHeight = cell.contentTextViewHeight + cellData.cellHeaderHeight;
+    NSLog(@"CellHeight?: %f", cellData.cellHeight);
     
     [self updateTableViewSize];
     //cell.contentTextView.backgroundColor = [UIColor redColor];
@@ -251,7 +256,7 @@
 
 - (void)endEditingTextTableCellText:(TextTableCell *)cell
 {
-    [self.scrollDelegate updateRelatedElementsInScrollViewWithCell:cell];
+    [self.scrollDelegate updateRelatedElementsInScrollView];
 }
 
 - (NSString *)formatDate:(NSDate *)date

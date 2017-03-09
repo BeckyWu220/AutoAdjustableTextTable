@@ -13,6 +13,8 @@
     UIScrollView *scrollView;
     CGSize currentScrollContentSize;
     BWAdjustableTextTable *textTableView;
+    UIButton *doneBtn;
+    UIImageView *imgView;
 }
 @end
 
@@ -20,25 +22,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    //In order to make currently inputting text cell highlighted while typing, we need to creat a UIScrollView to hold an instance of BWAdjustableTextTable.
     scrollView = [[UIScrollView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     scrollView.showsVerticalScrollIndicator = YES;
     scrollView.scrollEnabled = YES;
-    currentScrollContentSize = CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height+64.0f + 100.0f);
+    currentScrollContentSize = CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height);
     scrollView.contentSize = currentScrollContentSize;
-    
     [self.view addSubview:scrollView];
     
-    textTableView = [[BWAdjustableTextTable alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2) Data:[NSArray arrayWithObjects:[[BWCell alloc] initWithTitle:@"Name" DefaultContent:@"Not Specified" Type:HORIZONTAL_TEXT_TYPE Options:nil], [[BWCell alloc] initWithTitle:@"Email" DefaultContent:@"Not Specified" Type:HORIZONTAL_TEXT_TYPE Options:nil], [[BWCell alloc] initWithTitle:@"Job" DefaultContent:@"Not Specified" Type:HORIZONTAL_UIPICKER_TYPE Options:@[@"Programmer", @"Artist", @"Designer"]], [[BWCell alloc] initWithTitle:@"Employed From" DefaultContent:@"Not Specified" Type:VERTICAL_DATEPICKER_TYPE Options:nil], nil]];
+    //Header Image
+    imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.width/2)];
+    imgView.image = [UIImage imageNamed:@"headerImage"];
+    imgView.contentMode = UIViewContentModeScaleAspectFill;
+    [scrollView addSubview:imgView];
     
+    //Use BWCell initializer to pass in the title, default content, type and options of text table cell.
+    textTableView = [[BWAdjustableTextTable alloc] initWithWidth:scrollView.frame.size.width PositionY:imgView.frame.origin.y + imgView.frame.size.height Data:[NSArray arrayWithObjects:[[BWCell alloc] initWithTitle:@"Name" DefaultContent:@"Not Specified" Type:HORIZONTAL_TEXT_TYPE Options:nil], [[BWCell alloc] initWithTitle:@"Email" DefaultContent:@"Not Specified" Type:HORIZONTAL_TEXT_TYPE Options:nil], [[BWCell alloc] initWithTitle:@"Job" DefaultContent:@"Not Specified" Type:HORIZONTAL_UIPICKER_TYPE Options:@[@"Programmer", @"Artist", @"Designer"]], [[BWCell alloc] initWithTitle:@"Employed From" DefaultContent:@"Not Specified" Type:VERTICAL_DATEPICKER_TYPE Options:nil], nil]];
+    //Set textTableView's delegate and implement its delegate methods to control the scrolling of scrollView.
     textTableView.scrollDelegate = self;
     [scrollView addSubview:textTableView];
+    
+    //doneBtn is added here to represent how the delegate method -(void)updateRelatedElementsInScrollView works.
+    //When there's UI elements whose position are under textTableView, use -(void)updateRelatedElementsInScrollView to update their positions after the height of textTableView changes as inputing more contents.
+    doneBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, textTableView.frame.origin.y+textTableView.frame.size.height, [[UIScreen mainScreen] bounds].size.width, 35.0f)];
+    doneBtn.backgroundColor = [UIColor colorWithRed:25.0/255.0f green:87.0/255.0f blue:133.0/255.0f alpha:1.0f];
+    [doneBtn setTitle:@"Done" forState:UIControlStateNormal];
+    [doneBtn addTarget:self action:@selector(clickDoneBtn) forControlEvents:UIControlEventTouchUpInside];
+    [scrollView addSubview:doneBtn];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)clickDoneBtn
+{
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Reminder" message:@"This button illustrates how the following elements' positions are updated as table size changes." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [controller addAction:action];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 #pragma BWAdjustableTextTableDelegate
@@ -68,9 +87,10 @@
     scrollView.contentSize = currentScrollContentSize;
 }
 
-- (void)updateRelatedElementsInScrollViewWithCell:(TextTableCell *)cell
+- (void)updateRelatedElementsInScrollView
 {
-    //do nothing.
+    //If there's any UI elements appear under textTableView, it's position need to be adjusted here according to the height of textTableView changes.
+    doneBtn.frame = CGRectMake(0, textTableView.frame.origin.y + textTableView.frame.size.height + 10.0f, [[UIScreen mainScreen] bounds].size.width, 35.0f);
 }
 
 
