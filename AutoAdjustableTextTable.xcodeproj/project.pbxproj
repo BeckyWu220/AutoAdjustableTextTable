@@ -20,6 +20,7 @@
 		4540CFD51E7087F6003DCC93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4540CFD41E7087F6003DCC93 /* Main.storyboard */; };
 		4560ECE21E708C7B00CC4058 /* pickerSign.png in Resources */ = {isa = PBXBuildFile; fileRef = 4560ECE11E708C7B00CC4058 /* pickerSign.png */; };
 		4560ECE51E70BEC100CC4058 /* BWCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4560ECE41E70BEC100CC4058 /* BWCell.m */; };
+		4560ECE71E70D4C700CC4058 /* headerImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4560ECE61E70D4C700CC4058 /* headerImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		4560ECE11E708C7B00CC4058 /* pickerSign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickerSign.png; sourceTree = "<group>"; };
 		4560ECE31E70BEC100CC4058 /* BWCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCell.h; sourceTree = "<group>"; };
 		4560ECE41E70BEC100CC4058 /* BWCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCell.m; sourceTree = "<group>"; };
+		4560ECE61E70D4C700CC4058 /* headerImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				4560ECE11E708C7B00CC4058 /* pickerSign.png */,
+				4560ECE61E70D4C700CC4058 /* headerImage.png */,
 				4540CF6C1E708401003DCC93 /* BWAdjustableTextTable.h */,
 				4540CF6D1E708401003DCC93 /* BWAdjustableTextTable.m */,
 				4540CF6E1E708401003DCC93 /* TextCellData.h */,
@@ -176,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4540CF651E7083DC003DCC93 /* LaunchScreen.storyboard in Resources */,
+				4560ECE71E70D4C700CC4058 /* headerImage.png in Resources */,
 				4540CFD51E7087F6003DCC93 /* Main.storyboard in Resources */,
 				4560ECE21E708C7B00CC4058 /* pickerSign.png in Resources */,
 				4540CF771E708401003DCC93 /* TextTableCell1.xib in Resources */,

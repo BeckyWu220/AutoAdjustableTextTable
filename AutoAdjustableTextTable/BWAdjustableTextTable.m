@@ -21,11 +21,11 @@
 @synthesize scrollDelegate;
 @synthesize currentIndexPath;
 
-- (id)initWithWidth:(CGFloat)width Data:(NSArray *)dataArray
+- (id)initWithWidth:(CGFloat)width PositionY:(CGFloat)positionY Data:(NSArray *)dataArray
 {
     self = [super init];
     if (self) {
-        self.frame = CGRectMake(0, 0, width, 0);
+        self.frame = CGRectMake(0, positionY, width, 0);
         self.backgroundColor = [UIColor orangeColor];
         
         self.delegate = self;

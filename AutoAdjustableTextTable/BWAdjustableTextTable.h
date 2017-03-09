@@ -26,7 +26,7 @@
 @property (weak, nonatomic) id<BWAdjustableTextTableDelegate> scrollDelegate;
 @property (strong, nonatomic) NSIndexPath *currentIndexPath;
 
-- (id)initWithWidth:(CGFloat)width Data:(NSArray *)dataArray;
+- (id)initWithWidth:(CGFloat)width PositionY:(CGFloat)positionY Data:(NSArray *)dataArray;
 - (NSArray *)stopEditingAndReturnCellData;
 
 @end

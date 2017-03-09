@@ -14,6 +14,7 @@
     CGSize currentScrollContentSize;
     BWAdjustableTextTable *textTableView;
     UIButton *doneBtn;
+    UIImageView *imgView;
 }
 @end
 
@@ -30,13 +31,18 @@
     
     [self.view addSubview:scrollView];
     
-    textTableView = [[BWAdjustableTextTable alloc] initWithWidth:scrollView.frame.size.width Data:[NSArray arrayWithObjects:[[BWCell alloc] initWithTitle:@"Name" DefaultContent:@"Not Specified" Type:HORIZONTAL_TEXT_TYPE Options:nil], [[BWCell alloc] initWithTitle:@"Email" DefaultContent:@"Not Specified" Type:HORIZONTAL_TEXT_TYPE Options:nil], [[BWCell alloc] initWithTitle:@"Job" DefaultContent:@"Not Specified" Type:HORIZONTAL_UIPICKER_TYPE Options:@[@"Programmer", @"Artist", @"Designer"]], [[BWCell alloc] initWithTitle:@"Employed From" DefaultContent:@"Not Specified" Type:VERTICAL_DATEPICKER_TYPE Options:nil], nil]];
+    imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.width/2)];
+    imgView.image = [UIImage imageNamed:@"headerImage"];
+    imgView.contentMode = UIViewContentModeScaleAspectFill;
+    [scrollView addSubview:imgView];
+    
+    textTableView = [[BWAdjustableTextTable alloc] initWithWidth:scrollView.frame.size.width PositionY:imgView.frame.origin.y + imgView.frame.size.height Data:[NSArray arrayWithObjects:[[BWCell alloc] initWithTitle:@"Name" DefaultContent:@"Not Specified" Type:HORIZONTAL_TEXT_TYPE Options:nil], [[BWCell alloc] initWithTitle:@"Email" DefaultContent:@"Not Specified" Type:HORIZONTAL_TEXT_TYPE Options:nil], [[BWCell alloc] initWithTitle:@"Job" DefaultContent:@"Not Specified" Type:HORIZONTAL_UIPICKER_TYPE Options:@[@"Programmer", @"Artist", @"Designer"]], [[BWCell alloc] initWithTitle:@"Employed From" DefaultContent:@"Not Specified" Type:VERTICAL_DATEPICKER_TYPE Options:nil], nil]];
 
     textTableView.scrollDelegate = self;
     [scrollView addSubview:textTableView];
     
     doneBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, textTableView.frame.origin.y+textTableView.frame.size.height, [[UIScreen mainScreen] bounds].size.width, 35.0f)];
-    doneBtn.backgroundColor = [UIColor colorWithRed:67.0/255.0f green:169.0/255.0f blue:242.0/255.0f alpha:1.0f];
+    doneBtn.backgroundColor = [UIColor colorWithRed:25.0/255.0f green:87.0/255.0f blue:133.0/255.0f alpha:1.0f];
     [doneBtn setTitle:@"Done" forState:UIControlStateNormal];
     [doneBtn addTarget:self action:@selector(clickDoneBtn) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:doneBtn];
