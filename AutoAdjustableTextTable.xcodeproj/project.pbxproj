@@ -103,8 +103,6 @@
 		4540CF791E708409003DCC93 /* BWTextTable */ = {
 			isa = PBXGroup;
 			children = (
-				4560ECE11E708C7B00CC4058 /* pickerSign.png */,
-				4560ECE61E70D4C700CC4058 /* headerImage.png */,
 				4540CF6C1E708401003DCC93 /* BWAdjustableTextTable.h */,
 				4540CF6D1E708401003DCC93 /* BWAdjustableTextTable.m */,
 				4540CF6E1E708401003DCC93 /* TextCellData.h */,
@@ -115,8 +113,18 @@
 				4540CF731E708401003DCC93 /* TextTableCell2.xib */,
 				4560ECE31E70BEC100CC4058 /* BWCell.h */,
 				4560ECE41E70BEC100CC4058 /* BWCell.m */,
+				4560ECE81E70D85B00CC4058 /* Resources */,
 			);
 			name = BWTextTable;
+			sourceTree = "<group>";
+		};
+		4560ECE81E70D85B00CC4058 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4560ECE11E708C7B00CC4058 /* pickerSign.png */,
+				4560ECE61E70D4C700CC4058 /* headerImage.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
